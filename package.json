@@ -5,13 +5,13 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run build && npm run server",
-    "build:web": "ng build --prod -w --build-optimizer",
-    "build:server": "ng build --prod -w --app universal --output-hashing=none",
+    "build:web": "ng build -w",
+    "build:server": "ng build -w --app universal --output-hashing=none",
     "build": "ng build --prod && ng build --app universal --output-hashing none",
     "test": "echo \"Error: no test... minimal project\" && exit 1",
     "lint": "echo \"Error: no lint... minimal project\" && exit 1",
     "e2e": "echo \"Error: no e2e... minimal project\" && exit 1",
-    "server": "node server.js"
+    "server": "nodemon server.js"
   },
   "private": true,
   "dependencies": {
