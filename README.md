@@ -19,8 +19,8 @@ Compared to an empty project created with CLI, new or modified files are :
 
 - `.angular-cli.json` (modified with a second app config)
 - `src/tsconfig.server.json` (new)
-- `src/main-server.ts` (new)
-- `src/app/app-server.module.ts` (new)
+- `src/main.server.ts` (new)
+- `src/app/app.server.module.ts` (new)
 - `src/app/app.module.ts` (modified with serverTransition)
 - `server.js` (new)
 - `.gitignore` (modified)
