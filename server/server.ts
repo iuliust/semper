@@ -1,11 +1,10 @@
 'use strict';
 
-require('zone.js/dist/zone-node');
-require('reflect-metadata');
-
-const express = require('express');
-const ngUniversal = require('@nguniversal/express-engine');
-const appServer = require('../dist-server/main.bundle');
+import 'zone.js/dist/zone-node';
+import 'reflect-metadata';
+import * as express from 'express';
+import * as ngUniversal from '@nguniversal/express-engine';
+import * as appServer from '../dist-server/main.bundle';
 
 function angularRouter(req, res) {
 
@@ -31,7 +30,7 @@ app.get('/api', (req, res) => {
 });
 
 app.engine('html', ngUniversal.ngExpressEngine({
-  bootstrap: appServer.AppServerModuleNgFactory
+  bootstrap: appServer['AppServerModuleNgFactory']
 }));
 
 app.set('view engine', 'html');
