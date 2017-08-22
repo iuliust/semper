@@ -5,7 +5,7 @@ require('reflect-metadata');
 
 const express = require('express');
 const ngUniversal = require('@nguniversal/express-engine');
-const appServer = require('./dist-server/main.bundle');
+const appServer = require('../dist-server/main.bundle');
 
 function angularRouter(req, res) {
 
@@ -24,7 +24,7 @@ const app = express();
 
 app.get('/', angularRouter);
 
-app.use(express.static(`${__dirname}/dist`));
+app.use(express.static(`${__dirname}/../dist`));
 
 app.get('/api', (req, res) => {
   res.json({ data: 'Content from HTTP request.' });
