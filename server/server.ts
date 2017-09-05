@@ -4,7 +4,8 @@ import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 import * as express from 'express';
 import * as ngUniversal from '@nguniversal/express-engine';
-import * as appServer from '../dist-server/main.bundle';
+// import * as appServer from '../dist-server/main.bundle';
+import { AppServerModule } from '../src/main.server';
 
 function angularRouter(req, res) {
 
@@ -30,7 +31,7 @@ app.get('/api', (req, res) => {
 });
 
 app.engine('html', ngUniversal.ngExpressEngine({
-  bootstrap: appServer['AppServerModuleNgFactory']
+  bootstrap: AppServerModule
 }));
 
 app.set('view engine', 'html');
