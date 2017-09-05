@@ -7,7 +7,7 @@ import { ApiService } from './api.service';
   template: `
     <md-toolbar color="primary">My App</md-toolbar>
     <h1>
-      Welcome to {{title}}2
+      Welcome to {{title}}
     </h1>
     <p>{{data}}</p>
     <button (click)="counter = counter + 1">increment</button>
