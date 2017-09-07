@@ -4,14 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { RouterModule } from '@angular/router';
 
 import { LayoutModule } from './layout/layout.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
-
-const routes = [];
 
 @NgModule({
   declarations: [
@@ -24,7 +22,7 @@ const routes = [];
     MaterialModule,
     FlexLayoutModule,
     LayoutModule,
-    RouterModule.forRoot(routes),
+    AppRoutingModule,
   ],
   providers: [
     ApiService
