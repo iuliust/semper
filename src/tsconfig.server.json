@@ -11,6 +11,6 @@
     "main.ts"
   ],
   "angularCompilerOptions": {
-    "entryModule": "app/app.server.module#AppServerModule"
+    "entryModule": "app/server-app.module#ServerAppModule"
   }
 }

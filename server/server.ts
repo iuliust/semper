@@ -3,9 +3,11 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 import * as express from 'express';
-import * as ngUniversal from '@nguniversal/express-engine';
-// import * as appServer from '../dist-server/main.bundle';
-import { AppServerModule } from '../src/main.server';
+import { ngExpressEngine } from '@nguniversal/express-engine';
+import { enableProdMode } from '@angular/core';
+import { ServerAppModule } from '../src/main.server';
+
+enableProdMode();
 
 function angularRouter(req, res) {
 
@@ -30,8 +32,8 @@ app.get('/api', (req, res) => {
   res.json({ data: 'Content from HTTP request.' });
 });
 
-app.engine('html', ngUniversal.ngExpressEngine({
-  bootstrap: AppServerModule
+app.engine('html', ngExpressEngine({
+  bootstrap: ServerAppModule
 }));
 
 app.set('view engine', 'html');
