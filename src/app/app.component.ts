@@ -10,27 +10,18 @@ import {
 import { ApiService } from './api.service';
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <md-toolbar color="primary">My App</md-toolbar>
-    <h1 [@titleState]="titleState" (click)="toggleTitleState()">
-      Welcome to {{title}} !
-    </h1>
-    <p>{{data}}</p>
-    <button (click)="counter = counter + 1">increment</button>
-    <p>valeur du compteur : {{ counter }}</p>
-    <router-outlet></router-outlet>
-  `,
+  selector: 'fi-root',
+  templateUrl: 'app.component.html',
   styles: [],
   animations: [
     trigger('titleState', [
       state('small', style({
         backgroundColor: '#eee',
-        'font-size': '2em'
+        fontSize: '2em',
       })),
       state('big',   style({
         backgroundColor: '#cfd8dc',
-        'font-size': '4em'
+        fontSize: '4em',
       })),
       transition('small => big', animate('100ms ease-in')),
       transition('big => small', animate('100ms ease-out'))

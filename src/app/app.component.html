@@ -1,0 +1,8 @@
+<fi-navbar>Semper</fi-navbar>
+<h1 [@titleState]="titleState" (click)="toggleTitleState()">
+  Welcome to {{title}} !
+</h1>
+<p>{{data}}</p>
+<button (click)="counter = counter + 1">increment</button>
+<p>valeur du compteur : {{ counter }}</p>
+<router-outlet></router-outlet>
