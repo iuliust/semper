@@ -12,7 +12,7 @@ import { ApiService } from './api.service';
 @Component({
   selector: 'fi-root',
   templateUrl: 'app.component.html',
-  styles: [],
+  styleUrls: ['app.component.scss'],
   animations: [
     trigger('titleState', [
       state('small', style({

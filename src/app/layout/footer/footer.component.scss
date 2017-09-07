@@ -1,8 +1,11 @@
 :host {
-  color: white;
+  color: black;
+  font-weight: bold;
+  text-align: center;
 
   footer {
-    background-image: linear-gradient(to bottom, brown, rgb(99, 24, 24));
-    min-height: 240px;
+    padding: 1em;
+    background-image: linear-gradient(to bottom, grey, black);
+    min-height: 150px;
   }
 }

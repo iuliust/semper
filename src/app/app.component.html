@@ -1,13 +1,25 @@
-<fi-navbar>
-  <button md-icon-button (click)="sidenav.toggle()">
-    <md-icon aria-label="ouvrir le menu principal">menu</md-icon>
-  </button>
-  <span (click)="sidenav.toggle()">Semper</span>
-</fi-navbar>
 <md-sidenav-container>
   <md-sidenav mode="side" #sidenav>
     <fi-main-menu></fi-main-menu>
   </md-sidenav>
-  <fi-main-content></fi-main-content>
-  <fi-footer></fi-footer>
+  <div class="content" fxLayout="column" fxFlex>
+    <fi-navbar>
+      <button md-icon-button (click)="sidenav.toggle()">
+        <md-icon aria-label="ouvrir le menu principal">menu</md-icon>
+      </button>
+      <span (click)="sidenav.toggle()">Semper</span>
+      <span fxFlex></span>
+      <md-menu #appMenu="mdMenu">
+        <button md-menu-item>Option</button>
+        <button md-menu-item>Aide</button>
+      </md-menu>
+      <button md-icon-button [mdMenuTriggerFor]="appMenu">
+          <md-icon>more_vert</md-icon>
+      </button>
+    </fi-navbar>
+    <fi-main-content fxFlex>
+      <router-outlet></router-outlet>
+    </fi-main-content>
+    <fi-footer></fi-footer>
+  </div>
 </md-sidenav-container>
