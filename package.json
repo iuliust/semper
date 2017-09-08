@@ -5,8 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run build && npm run server",
-    "build:web": "ng build -w --prod",
-    "build:server": "ng build -w --app universal --output-hashing=none",
+    "build:web":    "ng build -w --prod",
+    "build:server": "ng build -w --prod --sourcemaps --app universal --output-hashing=none",
     "build": "ng build --prod && ng build --app universal --output-hashing none",
     "test": "echo \"Error: no test... minimal project\" && exit 1",
     "lint": "echo \"Error: no lint... minimal project\" && exit 1",
@@ -34,6 +34,7 @@
     "@nestjs/testing": "^3.0.0",
     "@nestjs/websockets": "^3.0.0",
     "@nguniversal/express-engine": "^1.0.0-beta.3",
+    "@nguniversal/module-map-ngfactory-loader": "^1.0.0-beta.3",
     "core-js": "^2.5.1",
     "express": "^4.15.3",
     "flex-layout": "^1.0.1",

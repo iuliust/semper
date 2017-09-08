@@ -1,46 +1,46 @@
-'use strict';
-
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 import * as express from 'express';
-import { ngExpressEngine } from '@nguniversal/express-engine';
+import * as fs from 'fs';
+import * as path from 'path';
 import { enableProdMode } from '@angular/core';
-import { ServerAppModule } from '../src/main.server';
+import { environment } from '../src/environments/environment';
+import { ngExpressEngine } from '@nguniversal/express-engine';
+import { renderModuleFactory } from '@angular/platform-server';
+import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import * as main from '../dist-server/main.bundle';
 
 enableProdMode();
 
-function angularRouter(req, res) {
+const LAZY_MODULE_MAP = main['LAZY_MODULE_MAP'];
+const ServerAppModuleNgFactory = main['ServerAppModuleNgFactory'];
 
-  res.render('index', {
-    req,
-    res,
-    providers: [{
-      provide: 'serverUrl',
-      useValue: `${req.protocol}://${req.get('host')}`
-    }]
-  });
-
-}
-
+const projectRoot = path.resolve(__dirname, '..');
+const indexHtml = fs.readFileSync(path.resolve(projectRoot, 'src', 'index.html'), 'utf8');
 const app = express();
+const port = 5000;
+const viewEngine = ngExpressEngine({
+  bootstrap: ServerAppModuleNgFactory,
+  providers: [
+    provideModuleMap(LAZY_MODULE_MAP)
+  ]
+});
 
-app.get('/', angularRouter);
-
-app.use(express.static(`${__dirname}/../dist`));
+app.engine('html', viewEngine);
+app.set('view engine', 'html');
+app.set('views', path.resolve(projectRoot, 'dist'));
+app.use('/', express.static(path.resolve(projectRoot, 'dist')));
 
 app.get('/api', (req, res) => {
-  res.json({ data: 'Content from HTTP request.' });
+  return res.json({ data: 'Content from HTTP request.' });
 });
 
-app.engine('html', ngExpressEngine({
-  bootstrap: ServerAppModule
-}));
+app.get('*', (req, res) => {
+  console.log(`GET ${req.url}`);
+  return res.render('index', { req, res, });
+});
 
-app.set('view engine', 'html');
-app.set('views', 'dist');
-
-app.get('*', angularRouter);
-
-app.listen(5000, () => {
+app.listen(port, () => {
   console.log(`Listening on http://localhost:5000`);
 });
+
