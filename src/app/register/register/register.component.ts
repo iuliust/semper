@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { RegistrationService } from '../../core/registration.service';
+
+import { UserRegistrationData } from '../../core';
 
 @Component({
-  selector: 'app-register',
+  selector: 'fi-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
+  constructor(private registrationService:  RegistrationService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  async saveUser(user: UserRegistrationData): Promise<UserRegistrationData> {
+    return this.registrationService.registerNewUser(user);
   }
-
 }

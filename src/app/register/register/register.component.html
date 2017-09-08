@@ -1,3 +1,9 @@
-<p>
-  register works!
-</p>
+<form (submit)="saveUser()">
+  <md-form-field>
+    <input type="text" mdInput placeholder="Identifiant">
+  </md-form-field>
+  <md-form-field>
+    <input type="password" mdInput placeholder="Mot de passe">
+  </md-form-field>
+  <button type="submit" md-button>Valider</button>
+</form>
