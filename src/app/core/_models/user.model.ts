@@ -1,9 +1,9 @@
 export interface User {
-  username: string;
+  userName: string;
 }
 
 export interface UserRegistrationData {
-  username: string;
+  userName: string;
   emailAddress: string;
   password: string;
 }

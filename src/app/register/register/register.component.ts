@@ -9,7 +9,13 @@ import { UserRegistrationData } from '../../core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  constructor(private registrationService:  RegistrationService) { }
+  public model: UserRegistrationData = {
+    userName: '',
+    emailAddress: '',
+    password: '',
+  };
+
+  constructor(private registrationService: RegistrationService) { }
 
   async saveUser(user: UserRegistrationData): Promise<UserRegistrationData> {
     return this.registrationService.registerNewUser(user);
