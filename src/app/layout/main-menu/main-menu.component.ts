@@ -13,5 +13,6 @@ interface linkModel {
 export class MainMenuComponent {
   links: linkModel[] = [
     { label: 'main', path: '/' },
+    { label: 'register', path: '/register' },
   ];
 }
