@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "assets/manifest/favicon.ico"
       ],
       "index": "index.html",
       "main": "main.browser.ts",
@@ -34,8 +34,16 @@
       "platform": "server",
       "root": "src",
       "outDir": "dist-server",
+      "assets": [
+        "assets",
+        "assets/manifest/favicon.ico"
+      ],
+      "index": "index.html",
       "main": "main.server.ts",
       "tsconfig": "tsconfig.server.json",
+      "styles": [
+        "styles.scss"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

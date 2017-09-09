@@ -3,14 +3,10 @@ import 'reflect-metadata';
 import * as express from 'express';
 import * as fs from 'fs';
 import * as path from 'path';
-import { enableProdMode } from '@angular/core';
-import { environment } from '../src/environments/environment';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { renderModuleFactory } from '@angular/platform-server';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import * as main from '../dist-server/main.bundle';
-
-enableProdMode();
 
 const LAZY_MODULE_MAP = main['LAZY_MODULE_MAP'];
 const ServerAppModuleNgFactory = main['ServerAppModuleNgFactory'];
