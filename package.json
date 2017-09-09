@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start":     "npm run build && npm run server",
+    "start": "npm run build && npm run server",
     "build:web": "ng build -w --prod",
     "build:server": "ng build -w --prod --sourcemaps --app universal --output-hashing none",
     "build": "ng build --prod && ng build --app universal --output-hashing none",
@@ -37,7 +37,6 @@
     "@nguniversal/module-map-ngfactory-loader": "^1.0.0-beta.3",
     "core-js": "^2.5.1",
     "express": "^4.15.3",
-    "flex-layout": "^1.0.1",
     "preboot": "^5.0.0",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.17"
