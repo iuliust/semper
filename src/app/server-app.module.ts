@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
     }),
     AppModule,
     ServerModule,
-    // NoopAnimationsModule,
+    NoopAnimationsModule,
     ModuleMapLoaderModule,
   ],
 })
