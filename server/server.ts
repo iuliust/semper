@@ -10,10 +10,6 @@ import * as main from '../dist-server/main.bundle';
 const LAZY_MODULE_MAP = main['LAZY_MODULE_MAP'];
 const ServerAppModuleNgFactory = main['ServerAppModuleNgFactory'];
 
-for (const propName of (main as any)) {
-  console.log(propName);
-}
-
 const projectRoot = path.resolve(__dirname, '..');
 const indexHtml = fs.readFileSync(path.resolve(projectRoot, 'src', 'index.html'), 'utf8');
 const app = express();
