@@ -4,12 +4,15 @@ import * as express from 'express';
 import * as fs from 'fs';
 import * as path from 'path';
 import { ngExpressEngine } from '@nguniversal/express-engine';
-import { renderModuleFactory } from '@angular/platform-server';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import * as main from '../dist-server/main.bundle';
 
 const LAZY_MODULE_MAP = main['LAZY_MODULE_MAP'];
 const ServerAppModuleNgFactory = main['ServerAppModuleNgFactory'];
+
+for (const propName of (main as any)) {
+  console.log(propName);
+}
 
 const projectRoot = path.resolve(__dirname, '..');
 const indexHtml = fs.readFileSync(path.resolve(projectRoot, 'src', 'index.html'), 'utf8');
