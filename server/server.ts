@@ -8,9 +8,7 @@ import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import * as compression from 'compression';
 import * as main from '../dist-server/main.bundle';
 
-const LAZY_MODULE_MAP = main['LAZY_MODULE_MAP'];
-const ServerAppModuleNgFactory = main['ServerAppModuleNgFactory'];
-console.log(`voici les routes de l'application : ${Object.keys(LAZY_MODULE_MAP)}`);
+const {LAZY_MODULE_MAP, ServerAppModuleNgFactory} = main;
 
 const projectRoot = path.resolve(__dirname, '..');
 const indexHtml = fs.readFileSync(path.resolve(projectRoot, 'src', 'index.html'), 'utf8');
