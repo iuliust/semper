@@ -1,4 +1,4 @@
-<p i18n>
+<p i18n="welcome|a message to welcome the user@@welcomeMessage">
   Tu es <span>
     {genre, select,
       f {la bienvenue}
@@ -6,5 +6,7 @@
     }</span> sur semperFI, le réseau social d'un genre nouveau ! #LGBT
 </p>
 <span>tu es :</span><br>
-<span (click)="female()">une femme</span><br>
-<span (click)="male()">un homme</span><br>
+<span i18n="woman|a button to choose the user's gender@@userGenderWomanSelector"
+    (click)="female()">une femme</span><br>
+<span i18n="woman|a button to choose the user's gender@@userGenderWomanSelector"
+    (click)="male()">un homme</span><br>
