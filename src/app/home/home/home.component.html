@@ -1,3 +1,10 @@
-<p>
-  home works!
+<p i18n>
+  Tu es <span>
+    {genre, select,
+      f {la bienvenue}
+      m {le bienvenu}
+    }</span> sur semperFI, le réseau social d'un genre nouveau ! #LGBT
 </p>
+<span>tu es :</span><br>
+<span (click)="female()">une femme</span><br>
+<span (click)="male()">un homme</span><br>
