@@ -29,7 +29,7 @@ function renderFrontendApplication(req, res) {
 app.engine('html', viewEngine);
 app.use(compression());
 app.set('view engine', 'html');
-app.set('views', path.resolve(projectRoot, 'dist'));
+app.set('views', path.resolve(projectRoot, 'dist-browser'));
 
 app.get('/api', (req, res) => {
   return res.json({ data: 'Content from HTTP request.' });
@@ -37,7 +37,7 @@ app.get('/api', (req, res) => {
 
 app.get('/', renderFrontendApplication);
 
-app.use('/', express.static(path.resolve(projectRoot, 'dist')));
+app.use('/', express.static(path.resolve(projectRoot, 'dist-browser')));
 
 app.get('*', renderFrontendApplication);
 
