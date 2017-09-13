@@ -7,7 +7,7 @@ export class ApiService {
   constructor(protected http: HttpClient) {}
 
   getData() {
-    return this.http.get<{data: string}>('/api');
+    return this.http.get<{data: string}>('/api/user/all');
   }
 
 }
