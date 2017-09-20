@@ -6,6 +6,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { AuthService } from './core/auth.service';
 
 import { ApiService } from './api.service';
 
@@ -35,7 +36,7 @@ export class AppComponent implements OnInit {
   data = '';
   counter = 0;
 
-  constructor(protected apiService: ApiService) {}
+  constructor(protected apiService: ApiService, public auth: AuthService) {}
 
   ngOnInit() {
     this.apiService.getData()

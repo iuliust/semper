@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RegistrationService } from './registration.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   imports: [
@@ -9,7 +9,7 @@ import { RegistrationService } from './registration.service';
   ],
   declarations: [],
   providers: [
-    RegistrationService
+    AuthService
   ],
 })
 export class CoreModule {

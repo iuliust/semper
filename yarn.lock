@@ -23,9 +23,9 @@
     minimist "^1.2.0"
     rxjs "^5.4.2"
 
-"@angular/animations@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.4.0-RC.0.tgz#cfd5937ce11eaba03ae3ebd778b0871b77539665"
+"@angular/animations@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.4.1.tgz#578d8951a273ee95936ab7f6cd933ff019ce0ffe"
   dependencies:
     tslib "^1.7.1"
 
@@ -35,14 +35,14 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/cli@^1.4.0":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.4.1.tgz#3999b93385c87b7c8d1511131c21280ba0e2cf12"
+"@angular/cli@next":
+  version "1.5.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.5.0-beta.0.tgz#de46970a85e2678a58d7fea00dbd2d29e582015c"
   dependencies:
     "@angular-devkit/build-optimizer" "~0.0.18"
     "@angular-devkit/schematics" "~0.0.21"
     "@ngtools/json-schema" "1.1.0"
-    "@ngtools/webpack" "1.7.0"
+    "@ngtools/webpack" "1.8.0-beta.0"
     "@schematics/angular" "~0.0.30"
     autoprefixer "^6.5.3"
     chalk "^2.0.1"
@@ -88,6 +88,7 @@
     stylus "^0.54.5"
     stylus-loader "^3.0.1"
     typescript ">=2.0.0 <2.6.0"
+    uglifyjs-webpack-plugin "1.0.0-beta.1"
     url-loader "^0.5.7"
     webpack "~3.5.5"
     webpack-concat-plugin "1.4.0"
@@ -98,29 +99,29 @@
   optionalDependencies:
     node-sass "^4.3.0"
 
-"@angular/common@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/common/-/common-4.4.0-RC.0.tgz#ad2d0853a62d2e87bba0bdd6588da6fa5f2dabb8"
+"@angular/common@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-4.4.1.tgz#d1aea2ccebddd2dfaf7137f55760d45638ada24a"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/compiler-cli@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-4.4.0-RC.0.tgz#d2daf086782a280210055a221f60d162b4fe627a"
+"@angular/compiler-cli@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-4.4.1.tgz#17b3be903efe1ed3bb2b1e29140634b500fdb265"
   dependencies:
     "@angular/tsc-wrapped" "4.3.6"
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
 
-"@angular/compiler@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.4.0-RC.0.tgz#a22a9eb7d0cfd04c01558b4b6ff144e4f20434ee"
+"@angular/compiler@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.4.1.tgz#ece6a333f8e57e819679f2a4034f807564b9cc40"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/core@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.4.0-RC.0.tgz#6f1b05d58dbe82e2cd329cd3dc0666f36c60c38f"
+"@angular/core@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.4.1.tgz#a3c5b80452448535253d2eab17b60601d83cc012"
   dependencies:
     tslib "^1.7.1"
 
@@ -130,21 +131,21 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/forms@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-4.4.0-RC.0.tgz#2c6d5bdb7d46fe6eb0416e161962b427265c3f7b"
+"@angular/forms@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-4.4.1.tgz#2a3644a3f84b96aad240ac6caa74d52bf3ada24a"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/http@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.4.0-RC.0.tgz#6baa945fa3a182a6ce82a151af65fc1489f5e1b1"
+"@angular/http@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.4.1.tgz#9265d1802673aa5f73ac125f98fce7af8b5fa72c"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/language-service@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-4.4.0-RC.0.tgz#4566f961b780b95b89160bce10775ef72b1ee0b2"
+"@angular/language-service@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-4.4.1.tgz#f44af998e84ff55653642fd7d7fe795a592074ec"
 
 "@angular/material@^2.0.0-beta.10":
   version "2.0.0-beta.10"
@@ -152,29 +153,29 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-browser-dynamic@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.4.0-RC.0.tgz#74fea4a8fbd89633209f2af0ca0a71a7a569d835"
+"@angular/platform-browser-dynamic@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.4.1.tgz#951dd7fdb3f5a0e45bc4bf93a2a7e051def24eaf"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-browser@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.4.0-RC.0.tgz#b7c5b8b6388564c74b0510f8750e2d7492413cee"
+"@angular/platform-browser@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.4.1.tgz#ce576401976f71d45a23c9a61ac05cef90a70f00"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-server@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-4.4.0-RC.0.tgz#0dc875d13c85130a81552269de11c19ab783cad3"
+"@angular/platform-server@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-4.4.1.tgz#c2af60fb2eb45720cc6ba72a9971bab67f6718bb"
   dependencies:
     parse5 "^3.0.1"
     tslib "^1.7.1"
     xhr2 "^0.1.4"
 
-"@angular/router@^4.4.0-RC.0":
-  version "4.4.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@angular/router/-/router-4.4.0-RC.0.tgz#ef6c075f1664a9fe677fa542334707e670461ee0"
+"@angular/router@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-4.4.1.tgz#d2c933c84a8f5077792e77787561ee1e7a4a1a14"
   dependencies:
     tslib "^1.7.1"
 
@@ -191,34 +192,34 @@
   dependencies:
     tsickle "^0.21.0"
 
-"@nestjs/common@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-3.0.0.tgz#66e21d71eb03585d20c4df4962adf55b46a03c2a"
+"@nestjs/common@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-4.0.0.tgz#c015f8a59f0e0bfe37518618d994175b409d31eb"
   dependencies:
     cli-color "1.1.0"
 
-"@nestjs/core@^3.0.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-3.1.1.tgz#5a95ea2d0c97ecc221b152e70fb69cae7ad6aa91"
+"@nestjs/core@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-4.0.0.tgz#78a26fde9aa3a5cbe5185b56cdef037b01563c30"
   dependencies:
     express "4.14.0"
     iterare "0.0.8"
 
-"@nestjs/microservices@^3.0.1":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-3.1.0.tgz#6994d97a1f6a0fa0124d7f6adbb9870e21b8b39f"
+"@nestjs/microservices@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-4.0.0.tgz#7adcd1eb1be9c62c5516057005c5f5538bd0d682"
   dependencies:
     iterare "0.0.8"
     json-socket "^0.2.1"
     redis "^2.7.1"
 
-"@nestjs/testing@^3.0.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-3.1.0.tgz#38134baaa6fa91c22fc89c55e93277bf661f0101"
+"@nestjs/testing@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-4.0.0.tgz#0486745fcd5670eb1373bfaeaad113382d6b275a"
 
-"@nestjs/websockets@^3.0.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/websockets/-/websockets-3.1.0.tgz#dafda4d2f45154393350825afa338210d0544c35"
+"@nestjs/websockets@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/websockets/-/websockets-4.0.0.tgz#4fb70e0633cefe8aab12eaaa7ee763db5b5814e2"
   dependencies:
     iterare "0.0.8"
     socket.io "^2.0.3"
@@ -227,9 +228,9 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.1.0.tgz#c3a0c544d62392acc2813a42c8a0dc6f58f86922"
 
-"@ngtools/webpack@1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.7.0.tgz#100b4ba370b3b9f991936f3d5db09cebffe11583"
+"@ngtools/webpack@1.8.0-beta.0":
+  version "1.8.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.8.0-beta.0.tgz#c690f152eac2f4ea28293bc8808ab8ecf6c23ccf"
   dependencies:
     enhanced-resolve "^3.1.0"
     loader-utils "^1.0.2"
@@ -260,6 +261,10 @@
   dependencies:
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
+
+"@types/graphql@0.10.2":
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.10.2.tgz#d7c79acbaa17453b6681c80c34b38fcb10c4c08c"
 
 "@types/mime@*":
   version "1.3.1"
@@ -377,6 +382,38 @@ anymatch@^1.3.0:
   dependencies:
     micromatch "^2.1.5"
     normalize-path "^2.0.0"
+
+apollo-angular@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/apollo-angular/-/apollo-angular-0.13.1.tgz#8ce5b7d613fd59c2937053b7a34bd7b183bc2fd2"
+  dependencies:
+    apollo-client-rxjs "^0.6.0-rc.1"
+
+apollo-client-rxjs@^0.6.0-rc.1:
+  version "0.6.0-rc.1"
+  resolved "https://registry.yarnpkg.com/apollo-client-rxjs/-/apollo-client-rxjs-0.6.0-rc.1.tgz#6aa1a620527f6f27a307bd305b41e55e8e25d80e"
+
+apollo-client@^1.9.2:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-1.9.2.tgz#a95b38ca846e881bba1b59b0e3fbf82abfd7f23d"
+  dependencies:
+    apollo-link-core "^0.5.0"
+    graphql "^0.10.0"
+    graphql-anywhere "^3.0.1"
+    graphql-tag "^2.0.0"
+    redux "^3.4.0"
+    symbol-observable "^1.0.2"
+    whatwg-fetch "^2.0.0"
+  optionalDependencies:
+    "@types/graphql" "0.10.2"
+
+apollo-link-core@^0.5.0:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/apollo-link-core/-/apollo-link-core-0.5.4.tgz#8efd4cd747959872a32f313f0ccfc2a76b396668"
+  dependencies:
+    graphql "^0.10.3"
+    graphql-tag "^2.4.2"
+    zen-observable-ts "^0.4.4"
 
 aproba@^1.0.3:
   version "1.1.2"
@@ -2156,6 +2193,20 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
+graphql-anywhere@^3.0.1:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/graphql-anywhere/-/graphql-anywhere-3.1.0.tgz#3ea0d8e8646b5cee68035016a9a7557c15c21e96"
+
+graphql-tag@^2.0.0, graphql-tag@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.4.2.tgz#6a63297d8522d03a2b72d26f1b239aab343840cd"
+
+graphql@^0.10.0, graphql@^0.10.3:
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.10.5.tgz#c9be17ca2bdfdbd134077ffd9bbaa48b8becd298"
+  dependencies:
+    iterall "^1.1.0"
+
 handle-thing@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
@@ -2664,6 +2715,10 @@ istanbul-lib-instrument@^1.1.3:
     istanbul-lib-coverage "^1.1.1"
     semver "^5.3.0"
 
+iterall@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.1.1.tgz#f7f0af11e9a04ec6426260f5019d9fcca4d50214"
+
 iterare@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/iterare/-/iterare-0.0.8.tgz#a969a80a1fbff6b78f28776594d7bc2bdfab6aad"
@@ -2883,6 +2938,10 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
+lodash-es@^4.2.1:
+  version "4.17.4"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.4.tgz#dcc1d7552e150a0640073ba9cb31d70f032950e7"
+
 lodash.assign@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/lodash.assign/-/lodash.assign-4.2.0.tgz#0d99f3ccd7a6d261d19bdaeb9245005d285808e7"
@@ -2911,7 +2970,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^4.0.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.3.0, lodash@~4.17.4:
+lodash@^4.0.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.4:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -2923,7 +2982,7 @@ longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
 
-loose-envify@^1.0.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
   dependencies:
@@ -4126,6 +4185,15 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
+redux@^3.4.0:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
+  dependencies:
+    lodash "^4.2.1"
+    lodash-es "^4.2.1"
+    loose-envify "^1.1.0"
+    symbol-observable "^1.0.3"
+
 reflect-metadata@^0.1.2:
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.10.tgz#b4f83704416acad89988c9b15635d47e03b9344a"
@@ -4788,7 +4856,7 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-symbol-observable@^1.0.1:
+symbol-observable@^1.0.1, symbol-observable@^1.0.2, symbol-observable@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.4.tgz#29bf615d4aa7121bdd898b22d4b3f9bc4e2aa03d"
 
@@ -4910,6 +4978,13 @@ typescript@^2.3.3:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.5.1.tgz#ce7cc93ada3de19475cc9d17e3adea7aee1832aa"
 
+uglify-es@^3.0.21:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.1.1.tgz#27615a1203cd0b351d8b5bda743ac92ed482b826"
+  dependencies:
+    commander "~2.11.0"
+    source-map "~0.5.1"
+
 uglify-js@3.0.x:
   version "3.0.28"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.28.tgz#96b8495f0272944787b5843a1679aa326640d5f7"
@@ -4937,6 +5012,14 @@ uglify-js@~2.3:
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
+
+uglifyjs-webpack-plugin@1.0.0-beta.1:
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-1.0.0-beta.1.tgz#595c14d8b85bedd708ab7a6e811894fbe0e69890"
+  dependencies:
+    source-map "^0.5.6"
+    uglify-es "^3.0.21"
+    webpack-sources "^1.0.1"
 
 uglifyjs-webpack-plugin@^0.4.6:
   version "0.4.6"
@@ -5184,6 +5267,10 @@ websocket-extensions@>=0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.1.tgz#76899499c184b6ef754377c2dbb0cd6cb55d29e7"
 
+whatwg-fetch@^2.0.0:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz#9c84ec2dcf68187ff00bc64e1274b442176e1c84"
+
 when@~3.6.x:
   version "3.6.4"
   resolved "https://registry.yarnpkg.com/when/-/when-3.6.4.tgz#473b517ec159e2b85005497a13983f095412e34e"
@@ -5354,6 +5441,10 @@ yargs@~3.10.0:
 yeast@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
+
+zen-observable-ts@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/zen-observable-ts/-/zen-observable-ts-0.4.4.tgz#c244c71eaebef79a985ccf9895bc90307a6e9712"
 
 zone.js@^0.8.14:
   version "0.8.16"

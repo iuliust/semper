@@ -1,7 +1,9 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { RegistrationService } from '../../core/registration.service';
+import { AuthService } from '../../core/auth.service';
 
 import { UserRegistrationData } from '../../core';
+import { MdSnackBar } from '@angular/material';
 
 @Component({
   selector: 'fi-register',
@@ -11,13 +13,23 @@ import { UserRegistrationData } from '../../core';
 export class RegisterComponent {
   public model: UserRegistrationData = {
     userName: '',
-    emailAddress: '',
+    email: '',
     password: '',
   };
 
-  constructor(private registrationService: RegistrationService) { }
+  constructor(private authService: AuthService,
+              private router: Router,
+              private snackbar: MdSnackBar) { }
 
-  async saveUser(user: UserRegistrationData): Promise<UserRegistrationData> {
-    return this.registrationService.registerNewUser(user);
+  async createNewUser(user: UserRegistrationData) {
+    try {
+      await this.authService.registerNewUser(user);
+      this.snackbar.open('Compte créé avec succès 🚀', undefined, {
+        duration: 2000,
+      });
+      this.router.navigate(['/']);
+    } catch (err) {
+      console.trace(err);
+    }
   }
 }

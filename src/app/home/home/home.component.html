@@ -10,3 +10,6 @@
     (click)="female()">une femme</span><br>
 <span i18n="woman|a button to choose the user's gender@@userGenderWomanSelector"
     (click)="male()">un homme</span><br>
+<article *ngFor="let photo of photos">
+  {{ photo.filename }} °°° {{ photo.description }}
+</article>

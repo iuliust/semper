@@ -1,0 +1,30 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="0 1 500px">
+    <form (ngSubmit)="authenticate(loginInfo)" #loginForm="ngForm">
+      <md-card>
+        <md-card-header>
+          <md-card-title>se connecter</md-card-title>
+        </md-card-header>
+        <md-card-content>
+          <p>
+            <md-input-container>
+              <input type="text" placeholder="ton pseudo" mdInput [(ngModel)]="loginInfo.userName" name="userName">
+            </md-input-container>
+          </p>
+          <p>
+            <md-input-container>
+              <input type="password" placeholder="ton mot de passe" mdInput [(ngModel)]="loginInfo.password" name="password">
+            </md-input-container>
+          </p>
+        </md-card-content>
+        <md-card-actions>
+          <button type="submit" md-raised-button color="primary">connexion</button>
+        </md-card-actions>
+      </md-card>
+    </form>
+    <md-spinner *ngIf="loading"></md-spinner>
+  </div>
+</div>
+<p>
+  Vous n'avez pas de compte ? <a md-button color="primary" routerLink="../register">Créer mon compte</a>
+</p>

@@ -1,15 +1,37 @@
-<form (ngSubmit)="saveUser(model)" #registrationForm="ngForm">
-  <md-form-field>
-    <input type="text" mdInput placeholder="Identifiant"
-        [(ngModel)]="model.userName" name="userName">
-  </md-form-field>
-  <md-form-field>
-    <input type="password" mdInput placeholder="Mot de passe"
-        [(ngModel)]="model.password" name="password">
-  </md-form-field>
-  <md-form-field>
-    <input type="email" mdInput placeholder="Courriel"
-        [(ngModel)]="model.emailAddress" name="emailAddress">
-  </md-form-field>
-  <button type="submit" md-button>Valider</button>
-</form>
+<div class="mat-typography" fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="0 1 500px">
+    <form (ngSubmit)="createNewUser(model)" #registrationForm="ngForm">
+      <md-card>
+        <md-card-header>
+          <md-card-title>Créer mon compte</md-card-title>
+        </md-card-header>
+        <md-card-content>
+          <p>
+            <md-form-field>
+              <input type="text" mdInput placeholder="Identifiant"
+                  [(ngModel)]="model.userName" name="userName">
+            </md-form-field>
+          </p>
+          <p>
+            <md-form-field>
+              <input type="password" mdInput placeholder="Mot de passe"
+                  [(ngModel)]="model.password" name="password">
+            </md-form-field>
+          </p>
+          <p>
+            <md-form-field>
+              <input type="email" mdInput placeholder="Courriel"
+                  [(ngModel)]="model.email" name="email">
+            </md-form-field>
+          </p>
+        </md-card-content>
+        <md-card-actions>
+          <button type="submit" md-button>Créer mon compte</button>
+        </md-card-actions>
+      </md-card>
+    </form>
+  </div>
+</div>
+<p>
+  Déjà inscrit ? <a md-button color="primary" routerLink="../login">connectez-vous</a>
+</p>
