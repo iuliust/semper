@@ -15,5 +15,6 @@ export class MainMenuComponent {
     { label: 'main', path: '/' },
     { label: 'register', path: '/register/register' },
     { label: 'login', path: '/register/login' },
+    { label: 'see all users', path: '/all-users' },
   ];
 }

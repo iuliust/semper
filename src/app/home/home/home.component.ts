@@ -1,4 +1,3 @@
-import { ApolloQueryObservable } from 'apollo-angular/build/src';
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
