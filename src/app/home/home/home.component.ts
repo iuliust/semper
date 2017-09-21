@@ -1,33 +1,33 @@
-// import { ApolloQueryObservable } from 'apollo-angular/build/src';
+import { ApolloQueryObservable } from 'apollo-angular/build/src';
 import { Component, OnInit } from '@angular/core';
-// import { Apollo } from 'apollo-angular';
-// import gql from 'graphql-tag';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 
 type Genre = 'f' | 'm';
-// interface Photo {
-//   id: number;
-//   name: string;
-//   description: string;
-//   filename: string,
-//   views: number,
-//   isPublished: boolean;
-// }
-// const photos = gql`
-// {
-//   photos {
-//     id
-//     name
-//     description
-//     filename
-//     views
-//     isPublished
-//   }
-// }
-// `;
+interface Photo {
+  id: number;
+  name: string;
+  description: string;
+  filename: string,
+  views: number,
+  isPublished: boolean;
+}
+const photos = gql`
+{
+  photos {
+    id
+    name
+    description
+    filename
+    views
+    isPublished
+  }
+}
+`;
 
-// interface QueryResponse {
-//   photos: Photo[];
-// }
+interface QueryResponse {
+  photos: Photo[];
+}
 
 @Component({
   selector: 'fi-home',
@@ -36,19 +36,19 @@ type Genre = 'f' | 'm';
 })
 export class HomeComponent implements OnInit {
   genre: Genre = 'm';
-  // photos: Photo[];
+  photos: Photo[];
 
   constructor(
-    // private apollo: Apollo
+    private apollo: Apollo
   ) {}
 
   ngOnInit(): void {
-    // this.apollo.watchQuery<QueryResponse>({
-    //   query: photos
-    // })
-    // .subscribe(({data}) => {
-    //   this.photos = data.photos;
-    // })
+    this.apollo.watchQuery<QueryResponse>({
+      query: photos
+    })
+    .subscribe(({data}) => {
+      this.photos = data.photos;
+    })
   }
 
   male() {
