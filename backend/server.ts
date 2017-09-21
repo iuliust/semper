@@ -15,42 +15,48 @@ const dirnamePath = path.resolve(__dirname);
 const rootPath = path.resolve(dirnamePath, '..');
 const projectHtmlPath = path.resolve(rootPath, 'dist/dist-browser/index.html');
 
-const template = fs.readFileSync(projectHtmlPath).toString();
-
-const app = express();
-const port = 4200;
-
-app.engine('html', (_, options, callback) => {
-  const opts = {};
-  renderModuleFactory(ServerAppModuleNgFactory, {
-    document: template,
-    url: options.req.url,
-    extraProviders: [provideModuleMap(LAZY_MODULE_MAP)],
-  }).then(html => callback(null, html));
-});
-
-function renderFrontendApplication(req, res) {
-  console.log(`GET ${req.url}`);
-  res.render('index', {req, res});
-}
-
-app.use(compression());
-app.set('view engine', 'html');
-app.set('views', path.resolve(rootPath, 'dist', 'dist-browser'));
-
-app.use('/api', proxy({
-  target: 'http://localhost:5000',
-  pathRewrite: {
-    "^/api": ""
+// const template = fs.readFileSync(projectHtmlPath).toString();
+fs.readFile(projectHtmlPath, (err, data) => {
+  if (err) {
+    throw err;
   }
-}));
+  const template = data.toString();
+  const app = express();
+  const port = 4200;
 
-app.get('/', renderFrontendApplication);
+  app.engine('html', (_, options, callback) => {
+    const opts = {};
+    renderModuleFactory(ServerAppModuleNgFactory, {
+      document: template,
+      url: options.req.url,
+      extraProviders: [provideModuleMap(LAZY_MODULE_MAP)],
+    }).then(html => callback(null, html));
+  });
 
-app.use('/', express.static(path.resolve(rootPath, 'dist', 'dist-browser')));
+  function renderFrontendApplication(req, res) {
+    console.log(`GET ${req.url}`);
+    res.render('index', {req, res});
+  }
 
-app.get('*', renderFrontendApplication);
+  app.use(compression());
+  app.set('view engine', 'html');
+  app.set('views', path.resolve(rootPath, 'dist', 'dist-browser'));
 
-app.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}`);
+  app.use('/api', proxy({
+    target: 'http://localhost:5000',
+    pathRewrite: {
+      "^/api": ""
+    }
+  }));
+
+  app.get('/', renderFrontendApplication);
+
+  app.use('/', express.static(path.resolve(rootPath, 'dist', 'dist-browser')));
+
+  app.get('*', renderFrontendApplication);
+
+  app.listen(port, () => {
+    console.log(`Listening on http://localhost:${port}`);
+  });
 });
+
