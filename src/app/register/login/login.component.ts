@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { AuthService } from '../../core/auth.service';
@@ -19,26 +19,22 @@ interface LoginResponse {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginInfo: LoginDto = {
     userName: '',
     password: '',
   };
-  loading: boolean;
+  loading = false;
 
   constructor(private http: HttpClient,
               private auth: AuthService,
               private snackBar: MdSnackBar,
               private router: Router) { }
 
-  ngOnInit() {
-  }
-
   async authenticate(info: LoginDto) {
     try {
       this.loading = true;
       const authResponse = await this.auth.login(info.userName, info.password);
-      console.log(authResponse);
       this.snackBar.open('vous êtes à présent connecté', undefined, {
         duration: 2000,
       });

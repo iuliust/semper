@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { MdSnackBar } from '@angular/material';
 
 @Component({
@@ -8,12 +8,15 @@ import { MdSnackBar } from '@angular/material';
   templateUrl: './disconnect.component.html',
   styleUrls: ['./disconnect.component.scss']
 })
-export class DisconnectComponent implements OnInit {
+export class DisconnectComponent implements AfterViewInit {
   loading = false;
 
-  constructor(private auth: AuthService, private router: Router, private snackBar: MdSnackBar) { }
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private snackBar: MdSnackBar) { }
 
-  async ngOnInit() {
+  async ngAfterViewInit() {
     try {
       this.loading = true;
       const done = await this.auth.logout();
@@ -24,8 +27,8 @@ export class DisconnectComponent implements OnInit {
       this.snackBar.open('la déconnexion a échoué');
       console.trace(err);
     } finally {
-      this.loading = false;
       this.router.navigate(['/']);
+      this.loading = false;
     }
   }
 

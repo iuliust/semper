@@ -1,8 +1,21 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../out-tsc/server",
+    "outDir": "../dist/dist-backend",
     "module": "commonjs",
-    "allowJs": true
-  }
+    "allowJs": true,
+    "lib": [
+        "es2016",
+        "esnext.asynciterable",
+        "dom"
+      ]
+  },
+  "files": [
+    "server.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.browser.ts",
+    "node_modules"
+  ]
 }

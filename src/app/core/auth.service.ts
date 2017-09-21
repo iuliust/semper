@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
+
+import { LocalStorageService } from './local-storage.service';
+import { TokenExchangerService } from './token-exchanger.service';
 
 import {
   UserRegistrationData,
@@ -14,10 +17,17 @@ export class AuthService {
   public token: string;
   public user: User;
 
-  constructor(private http: HttpClient) {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
-    this.user = currentUser && currentUser.user;
+  constructor(
+    private http: HttpClient,
+    private exchanger: TokenExchangerService,
+    private localStorage: LocalStorageService,
+  ) {
+    if (this.localStorage.isBrowser) {
+      const currentUser = JSON.parse(this.localStorage.getItem('currentUser'));
+      this.token = currentUser && currentUser.token;
+      this.user = currentUser && currentUser.user;
+      this.exchanger.set(this.token);
+    }
   }
 
   async registerNewUser(user: UserRegistrationData): Promise<UserLoginResponse> {
@@ -26,7 +36,8 @@ export class AuthService {
       if ('token' in res) {
         this.token = res.token;
         this.user = res.user;
-        localStorage.setItem('currentUser', JSON.stringify({token: this.token, user: this.user}));
+        this.localStorage.setItem('currentUser', JSON.stringify({token: this.token, user: this.user}));
+        this.exchanger.set(this.token);
         return {token: this.token, user: this.user};
       } else {
         throw new Error('registration failed');
@@ -48,10 +59,11 @@ export class AuthService {
         if ('token' in responseBody) {
           this.token = responseBody.token;
           this.user = responseBody.user;
-          localStorage.setItem('currentUser', JSON.stringify({
+          this.localStorage.setItem('currentUser', JSON.stringify({
             token: this.token,
             user: responseBody.user
           }));
+          this.exchanger.set(this.token);
           return {token: this.token, user: responseBody.user};
         } else {
           throw new Error('couldn\'t find the token in the response');
@@ -60,9 +72,15 @@ export class AuthService {
   }
 
   async logout() {
-    this.token = null;
-    this.user = null;
-    localStorage.removeItem('currentUser');
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.token = null;
+        this.user = null;
+        this.localStorage.removeItem('currentUser');
+        this.exchanger.set(null);
+        resolve()
+      }, 0);
+    });
   }
 
   async deleteAccount(id: string): Promise<boolean> {

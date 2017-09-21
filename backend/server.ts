@@ -6,14 +6,15 @@ import * as path from 'path';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import * as compression from 'compression';
-import * as main from '../dist-server/main.bundle';
+import * as proxy from 'http-proxy-middleware';
+import * as main from '../dist/dist-server/main.bundle';
 
 const {LAZY_MODULE_MAP, ServerAppModuleNgFactory} = main;
 
 const projectRoot = path.resolve(__dirname, '..');
 const indexHtml = fs.readFileSync(path.resolve(projectRoot, 'src', 'index.html'), 'utf8');
 const app = express();
-const port = 5000;
+const port = 4200;
 const viewEngine = ngExpressEngine({
   bootstrap: ServerAppModuleNgFactory,
   providers: [
@@ -29,19 +30,21 @@ function renderFrontendApplication(req, res) {
 app.engine('html', viewEngine);
 app.use(compression());
 app.set('view engine', 'html');
-app.set('views', path.resolve(projectRoot, 'dist-browser'));
+app.set('views', path.resolve(projectRoot, 'dist', 'dist-browser'));
 
-app.get('/api', (req, res) => {
-  return res.json({ data: 'Content from HTTP request.' });
-});
+app.use('/api', proxy({
+  target: 'http://localhost:5000',
+  pathRewrite: {
+    "^/api": ""
+  }
+}));
 
 app.get('/', renderFrontendApplication);
 
-app.use('/', express.static(path.resolve(projectRoot, 'dist-browser')));
+app.use('/', express.static(path.resolve(projectRoot, 'dist', 'dist-browser')));
 
 app.get('*', renderFrontendApplication);
 
 app.listen(port, () => {
-  console.log(`Listening on http://localhost:5000`);
+  console.log(`Listening on http://localhost:${port}`);
 });
-

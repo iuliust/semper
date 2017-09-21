@@ -2,12 +2,18 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/server",
-    "module": "commonjs"
+    "module": "commonjs",
+    "lib": [
+      "dom",
+      "es2016",
+      "esnext.asynciterable"
+    ]
   },
   "exclude": [
     "test.ts",
     "**/*.spec.ts",
-    "**/*.browser.ts"
+    "**/*.browser.ts",
+    "app/browser-app.module.ts"
   ],
   "angularCompilerOptions": {
     "entryModule": "app/server-app.module#ServerAppModule"

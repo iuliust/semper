@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist-browser",
+      "outDir": "dist/dist-browser",
       "assets": [
         "assets",
         "favicon.ico"
@@ -18,6 +18,7 @@
       "tsconfig": "tsconfig.browser.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "fi",
+      "serviceWorker": true,
       "styles": [
         "styles.scss"
       ],
@@ -26,18 +27,17 @@
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
-      },
-      "serviceWorker": true
+      }
     },
     {
       "name": "universal",
-      "platform": "server",
       "root": "src",
-      "outDir": "dist-server",
+      "outDir": "dist/dist-server",
       "assets": [
         "assets",
         "favicon.ico"
       ],
+      "platform": "server",
       "index": "index.html",
       "main": "main.server.ts",
       "tsconfig": "tsconfig.server.json",
@@ -77,15 +77,15 @@
   },
   "defaults": {
     "styleExt": "scss",
+    "class": {
+      "spec": false
+    },
     "component": {
       "spec": false,
       "inlineStyle": true,
       "inlineTemplate": false
     },
     "directive": {
-      "spec": false
-    },
-    "class": {
       "spec": false
     },
     "guard": {
@@ -100,5 +100,8 @@
     "service": {
       "spec": false
     }
+  },
+  "warnings": {
+    "typescriptMismatch": false
   }
 }

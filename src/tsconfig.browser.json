@@ -4,12 +4,17 @@
     "outDir": "../out-tsc/browser",
     "baseUrl": "./",
     "module": "es2015",
-    "types": []
+    "lib": [
+      "es2016",
+      "dom",
+      "esnext.asynciterable"
+    ]
   },
   "exclude": [
     "test.ts",
     "**/*.spec.ts",
-    "**/*.server.ts"
+    "**/*.server.ts",
+    "app/server-app.module.ts"
   ],
   "angularCompilerOptions": {
     "entryModule": "./app/browser-app.module#BrowserAppModule"

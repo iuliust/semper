@@ -1,6 +1,10 @@
 import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { AuthInterceptor } from './auth.interceptor';
+import { TokenExchangerService } from './token-exchanger.service';
+import { LocalStorageService } from './local-storage.service';
 import { AuthService } from './auth.service';
 
 @NgModule({
@@ -9,7 +13,14 @@ import { AuthService } from './auth.service';
   ],
   declarations: [],
   providers: [
-    AuthService
+    AuthService,
+    TokenExchangerService,
+    LocalStorageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
   ],
 })
 export class CoreModule {
