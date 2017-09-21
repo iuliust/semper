@@ -3,23 +3,30 @@ import 'reflect-metadata';
 import * as express from 'express';
 import * as fs from 'fs';
 import * as path from 'path';
-import { ngExpressEngine } from '@nguniversal/express-engine';
-import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import * as compression from 'compression';
 import * as proxy from 'http-proxy-middleware';
 import * as main from '../dist/dist-server/main.bundle';
+import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
+import { renderModuleFactory } from '@angular/platform-server';
 const {LAZY_MODULE_MAP, ServerAppModuleNgFactory} = main;
 
-const projectRoot = path.resolve(__dirname, '..');
-const indexHtml = fs.readFileSync(path.resolve(projectRoot, 'src', 'index.html'), 'utf8');
+const dirnamePath = path.resolve(__dirname);
+const rootPath = path.resolve(dirnamePath, '..');
+const projectHtmlPath = path.resolve(rootPath, 'dist/dist-browser/index.html');
+
+const template = fs.readFileSync(projectHtmlPath).toString();
+
 const app = express();
 const port = 4200;
-const viewEngine = ngExpressEngine({
-  bootstrap: ServerAppModuleNgFactory,
-  providers: [
-    provideModuleMap(LAZY_MODULE_MAP)
-  ]
+
+app.engine('html', (_, options, callback) => {
+  const opts = {};
+  renderModuleFactory(ServerAppModuleNgFactory, {
+    document: template,
+    url: options.req.url,
+    extraProviders: [provideModuleMap(LAZY_MODULE_MAP)],
+  }).then(html => callback(null, html));
 });
 
 function renderFrontendApplication(req, res) {
@@ -27,10 +34,9 @@ function renderFrontendApplication(req, res) {
   res.render('index', {req, res});
 }
 
-app.engine('html', viewEngine);
 app.use(compression());
 app.set('view engine', 'html');
-app.set('views', path.resolve(projectRoot, 'dist', 'dist-browser'));
+app.set('views', path.resolve(rootPath, 'dist', 'dist-browser'));
 
 app.use('/api', proxy({
   target: 'http://localhost:5000',
@@ -41,7 +47,7 @@ app.use('/api', proxy({
 
 app.get('/', renderFrontendApplication);
 
-app.use('/', express.static(path.resolve(projectRoot, 'dist', 'dist-browser')));
+app.use('/', express.static(path.resolve(rootPath, 'dist', 'dist-browser')));
 
 app.get('*', renderFrontendApplication);
 

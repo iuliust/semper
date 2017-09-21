@@ -4,9 +4,9 @@ import { ServerModule } from '@angular/platform-server';
 import { ServerPrebootModule } from 'preboot/server';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
-// import { ApolloModule } from 'apollo-angular';
+import { ApolloModule } from 'apollo-angular';
 
-// import { provideClient } from './apollo.server';
+import { provideClient } from './apollo.server';
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 
@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
     AppModule,
     ServerPrebootModule.recordEvents({ appRoot: 'fi-root' }),
     NoopAnimationsModule,
-    // ApolloModule.withClient(provideClient),
+    ApolloModule.withClient(provideClient),
     ModuleMapLoaderModule,
   ],
   providers: [

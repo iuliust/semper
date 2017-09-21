@@ -1,1 +1,1 @@
-export default __dirname;
+export const rootPath = __dirname;
