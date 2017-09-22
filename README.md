@@ -19,15 +19,15 @@ Côté front :
 - [x] Angular AOT
 - [x] Angular Animations
 - [x] Lazy Loading
-- [ ] tree shaking
+- [x] tree shaking
 - [ ] http2
-- [ ] graphQL
-- [ ] apollo
-- [ ] nestJS 4
-- [ ] express 4
+- [x] graphQL
+- [x] apollo
+- [x] nestJS 4
+- [x] express 4
 - [ ] ngrx/rxjs
 - [ ] peut-être Nativescript
-- [ ] JSON web Token
+- [x] JSON web Token
 - [ ] webpack hot module reloading
 - [ ] compression brotli/broccoli
 - [ ] AssemblyScript (subset of TypeScript transpilable to wasm)
