@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
-import { MaterialModule } from '@angular/material';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import {
+  MdCardModule,
+  MdInputModule,
+  MdFormFieldModule,
+  MdProgressSpinnerModule
+} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { RegisterRoutingModule } from './register-routing.module';
@@ -13,9 +18,12 @@ import { DisconnectComponent } from './disconnect/disconnect.component';
 @NgModule({
   imports: [
     CommonModule,
-    FlexLayoutModule,
-    MaterialModule,
     FormsModule,
+    FlexLayoutModule,
+    MdInputModule,
+    MdProgressSpinnerModule,
+    MdFormFieldModule,
+    MdCardModule,
     RegisterRoutingModule,
   ],
   declarations: [ RegisterComponent, LoginComponent, DisconnectComponent ],

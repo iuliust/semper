@@ -15,7 +15,6 @@ const dirnamePath = path.resolve(__dirname);
 const rootPath = path.resolve(dirnamePath, '..');
 const projectHtmlPath = path.resolve(rootPath, 'dist/dist-browser/index.html');
 
-// const template = fs.readFileSync(projectHtmlPath).toString();
 fs.readFile(projectHtmlPath, (err, data) => {
   if (err) {
     throw err;
