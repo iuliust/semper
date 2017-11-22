@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 
+const materialModules = [
+];
+
 @NgModule({
-  imports: [],
+  imports: [
+    ...materialModules,
+  ],
   exports: [],
   declarations: []
 })

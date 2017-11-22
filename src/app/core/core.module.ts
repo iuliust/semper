@@ -6,10 +6,12 @@ import { AuthInterceptor } from './auth.interceptor';
 import { TokenExchangerService } from './token-exchanger.service';
 import { LocalStorageService } from './local-storage.service';
 import { AuthService } from './auth.service';
+import { MatSnackBarModule } from '@angular/material';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MatSnackBarModule,
   ],
   declarations: [],
   providers: [

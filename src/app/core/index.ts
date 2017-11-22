@@ -1,6 +1,6 @@
-import { OpaqueToken } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
 export * from './_models';
 export * from './auth.service';
 export * from './core.module';
-export const LocalStorage = new OpaqueToken('localStorage');
+export const LocalStorage = new InjectionToken('localStorage');

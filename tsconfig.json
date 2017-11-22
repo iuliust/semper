@@ -2,6 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "baseUrl": "./src",
     "allowJs": true,
     // "allowJs": true,
     "sourceMap": true,
@@ -17,5 +18,8 @@
     "typeRoots": [
       "node_modules/@types"
     ]
+  },
+  "angularCompilerOptions": {
+    "entryModule": "./app/browser-app.module#BrowserAppModule"
   }
 }
