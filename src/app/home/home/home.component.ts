@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
     this.apollo.watchQuery<QueryResponse>({
       query: photos
     })
+    .valueChanges
     .subscribe(({data}) => {
       this.photos = data.photos;
     })

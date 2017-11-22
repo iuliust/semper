@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
 import { MatSidenavModule, MatMenuModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { SharedModule } from 'app/shared';
 
 
 @NgModule({
@@ -18,16 +19,11 @@ import { MatSidenavModule, MatMenuModule, MatButtonModule, MatIconModule } from 
     AppComponent
   ],
   imports: [
-    CommonModule,
-    HttpClientModule,
     FormsModule,
-    MatSidenavModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatIconModule,
     FlexLayoutModule,
     LayoutModule,
     CoreModule.forRoot(),
+    SharedModule,
     AppRoutingModule,
   ],
   providers: [
@@ -35,4 +31,5 @@ import { MatSidenavModule, MatMenuModule, MatButtonModule, MatIconModule } from 
   ],
   exports: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

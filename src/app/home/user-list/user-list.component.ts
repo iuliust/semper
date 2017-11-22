@@ -33,6 +33,7 @@ export class UserListComponent implements OnInit {
       }
       `,
     })
+    .valueChanges
     .subscribe(({data}) => {
       this.users = data.users;
     });
