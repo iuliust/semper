@@ -52,8 +52,8 @@ export class AuthService {
     }
   }
 
-  async login(userName: string, password: string): Promise<UserLoginResponse> {
-    return this.http.post<UserLoginResponse>('/api/auth/login', {userName, password})
+  async login(username: string, password: string): Promise<UserLoginResponse> {
+    return this.http.post<UserLoginResponse>('/api/auth/login', {username, password})
       .toPromise()
       .then(responseBody => {
         if ('token' in responseBody) {

@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
-import { MdSidenavModule, MdMenuModule, MdButtonModule } from '@angular/material';
+import { MdSidenavModule, MdMenuModule, MdButtonModule, MdIconModule } from '@angular/material';
 
 
 @NgModule({
@@ -24,6 +24,7 @@ import { MdSidenavModule, MdMenuModule, MdButtonModule } from '@angular/material
     MdSidenavModule,
     MdMenuModule,
     MdButtonModule,
+    MdIconModule,
     FlexLayoutModule,
     LayoutModule,
     CoreModule.forRoot(),

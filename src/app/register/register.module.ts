@@ -14,6 +14,7 @@ import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { DisconnectComponent } from './disconnect/disconnect.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,8 @@ import { DisconnectComponent } from './disconnect/disconnect.component';
     MdCardModule,
     RegisterRoutingModule,
   ],
-  declarations: [ RegisterComponent, LoginComponent, DisconnectComponent ],
+  declarations: [ RegisterComponent, LoginComponent, DisconnectComponent,
+    LoginPageComponent
+],
 })
 export class RegisterModule { }

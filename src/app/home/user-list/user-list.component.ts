@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 
 interface User {
   id: number;
-  userName: string;
+  username: string;
 }
 
 interface QueryResponse {
@@ -28,7 +28,7 @@ export class UserListComponent implements OnInit {
       {
         users {
           id
-          userName
+          username
         }
       }
       `,

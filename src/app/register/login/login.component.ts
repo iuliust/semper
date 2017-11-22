@@ -1,12 +1,12 @@
 import { Router } from '@angular/router';
-import { Component, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { AuthService } from '../../core/auth.service';
 import { MdSnackBar } from '@angular/material';
 
 interface LoginDto {
-  userName: string;
+  username: string;
   password: string;
 }
 
@@ -20,8 +20,9 @@ interface LoginResponse {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  // @Output() connectionSuccess  = new EventEmitter<any>();
   loginInfo: LoginDto = {
-    userName: '',
+    username: '',
     password: '',
   };
   loading = false;
@@ -31,10 +32,10 @@ export class LoginComponent {
               private snackBar: MdSnackBar,
               private router: Router) { }
 
-  async authenticate(info: LoginDto) {
+  async submitCredentials(info: LoginDto) {
     try {
       this.loading = true;
-      const authResponse = await this.auth.login(info.userName, info.password);
+      const authResponse = await this.auth.login(info.username, info.password);
       this.snackBar.open('vous êtes à présent connecté', undefined, {
         duration: 2000,
       });

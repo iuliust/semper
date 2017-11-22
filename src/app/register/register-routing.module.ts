@@ -1,3 +1,4 @@
+import { LoginPageComponent } from './login-page/login-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -6,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { DisconnectComponent } from './disconnect/disconnect.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'disconnect', component: DisconnectComponent },
 ];

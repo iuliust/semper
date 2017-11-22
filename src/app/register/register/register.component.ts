@@ -12,7 +12,7 @@ import { MdSnackBar } from '@angular/material';
 })
 export class RegisterComponent {
   public model: UserRegistrationData = {
-    userName: '',
+    username: '',
     email: '',
     password: '',
   };

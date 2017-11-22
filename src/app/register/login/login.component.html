@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="center">
   <div fxFlex="0 1 500px">
-    <form (ngSubmit)="authenticate(loginInfo)" #loginForm="ngForm">
+    <form (ngSubmit)="submitCredentials(loginInfo)" #loginForm="ngForm">
       <md-card>
         <md-card-header>
           <md-card-title>se connecter</md-card-title>
@@ -8,12 +8,20 @@
         <md-card-content>
           <p>
             <md-input-container>
-              <input type="text" placeholder="ton pseudo" mdInput [(ngModel)]="loginInfo.userName" name="userName">
+              <input type="text"
+                  placeholder="ton pseudo"
+                  mdInput
+                  [(ngModel)]="loginInfo.username"
+                  name="username">
             </md-input-container>
           </p>
           <p>
             <md-input-container>
-              <input type="password" placeholder="ton mot de passe" mdInput [(ngModel)]="loginInfo.password" name="password">
+              <input type="password"
+                  placeholder="ton mot de passe"
+                  mdInput
+                  [(ngModel)]="loginInfo.password"
+                  name="password">
             </md-input-container>
           </p>
         </md-card-content>
