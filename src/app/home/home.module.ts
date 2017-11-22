@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+
+import { SharedModule } from 'app/shared';
 
 import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
-import { SharedModule } from 'app/shared';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,7 +12,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, SharedModule, RouterModule.forChild(routes) ],
+  imports: [ SharedModule, RouterModule.forChild(routes) ],
   declarations: [ HomeComponent, UserListComponent ],
   exports: [],
 })

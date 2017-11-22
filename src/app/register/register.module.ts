@@ -15,16 +15,12 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { DisconnectComponent } from './disconnect/disconnect.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { SharedModule } from 'app/shared';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
+    SharedModule,
     FlexLayoutModule,
-    MatInputModule,
-    MatProgressSpinnerModule,
-    MatFormFieldModule,
-    MatCardModule,
     RegisterRoutingModule,
   ],
   declarations: [ RegisterComponent, LoginComponent, DisconnectComponent,

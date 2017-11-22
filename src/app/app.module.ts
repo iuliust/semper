@@ -19,7 +19,6 @@ import { SharedModule } from 'app/shared';
     AppComponent
   ],
   imports: [
-    FormsModule,
     FlexLayoutModule,
     LayoutModule,
     CoreModule.forRoot(),
