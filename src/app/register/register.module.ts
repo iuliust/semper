@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  MdCardModule,
-  MdInputModule,
-  MdFormFieldModule,
-  MdProgressSpinnerModule
+  MatCardModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -21,10 +21,10 @@ import { LoginPageComponent } from './login-page/login-page.component';
     CommonModule,
     FormsModule,
     FlexLayoutModule,
-    MdInputModule,
-    MdProgressSpinnerModule,
-    MdFormFieldModule,
-    MdCardModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatCardModule,
     RegisterRoutingModule,
   ],
   declarations: [ RegisterComponent, LoginComponent, DisconnectComponent,

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 
 import { UserRegistrationData } from '../../core';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'fi-register',
@@ -19,7 +19,7 @@ export class RegisterComponent {
 
   constructor(private authService: AuthService,
               private router: Router,
-              private snackbar: MdSnackBar) { }
+              private snackbar: MatSnackBar) { }
 
   async createNewUser(user: UserRegistrationData) {
     try {

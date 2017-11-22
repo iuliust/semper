@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 import { Component, AfterViewInit } from '@angular/core';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'fi-disconnect',
@@ -14,7 +14,7 @@ export class DisconnectComponent implements AfterViewInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private snackBar: MdSnackBar) { }
+    private snackBar: MatSnackBar) { }
 
   async ngAfterViewInit() {
     try {

@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
-import { MdSidenavModule, MdMenuModule, MdButtonModule, MdIconModule } from '@angular/material';
+import { MatSidenavModule, MatMenuModule, MatButtonModule, MatIconModule } from '@angular/material';
 
 
 @NgModule({
@@ -21,10 +21,10 @@ import { MdSidenavModule, MdMenuModule, MdButtonModule, MdIconModule } from '@an
     CommonModule,
     HttpClientModule,
     FormsModule,
-    MdSidenavModule,
-    MdMenuModule,
-    MdButtonModule,
-    MdIconModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule,
     FlexLayoutModule,
     LayoutModule,
     CoreModule.forRoot(),

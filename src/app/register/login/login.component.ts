@@ -3,7 +3,7 @@ import { AfterViewInit, Component, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { AuthService } from '../../core/auth.service';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 interface LoginDto {
   username: string;
@@ -29,7 +29,7 @@ export class LoginComponent {
 
   constructor(private http: HttpClient,
               private auth: AuthService,
-              private snackBar: MdSnackBar,
+              private snackBar: MatSnackBar,
               private router: Router) { }
 
   async submitCredentials(info: LoginDto) {

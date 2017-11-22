@@ -1,38 +1,38 @@
 <div fxLayout="row" fxLayoutAlign="center">
   <div fxFlex="0 1 500px">
     <form (ngSubmit)="submitCredentials(loginInfo)" #loginForm="ngForm">
-      <md-card>
-        <md-card-header>
-          <md-card-title>se connecter</md-card-title>
-        </md-card-header>
-        <md-card-content>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>se connecter</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
           <p>
-            <md-input-container>
+            <mat-input-container>
               <input type="text"
                   placeholder="ton pseudo"
                   mdInput
                   [(ngModel)]="loginInfo.username"
                   name="username">
-            </md-input-container>
+            </mat-input-container>
           </p>
           <p>
-            <md-input-container>
+            <mat-input-container>
               <input type="password"
                   placeholder="ton mot de passe"
                   mdInput
                   [(ngModel)]="loginInfo.password"
                   name="password">
-            </md-input-container>
+            </mat-input-container>
           </p>
-        </md-card-content>
-        <md-card-actions>
-          <button type="submit" md-raised-button color="primary">connexion</button>
-        </md-card-actions>
-      </md-card>
+        </mat-card-content>
+        <mat-card-actions>
+          <button type="submit" mat-raised-button color="primary">connexion</button>
+        </mat-card-actions>
+      </mat-card>
     </form>
-    <md-spinner *ngIf="loading"></md-spinner>
+    <mat-spinner *ngIf="loading"></mat-spinner>
   </div>
 </div>
 <p>
-  Vous n'avez pas de compte ? <a md-button color="primary" routerLink="../register">Créer mon compte</a>
+  Vous n'avez pas de compte ? <a mat-button color="primary" routerLink="../register">Créer mon compte</a>
 </p>
