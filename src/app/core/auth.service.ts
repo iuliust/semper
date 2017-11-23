@@ -1,7 +1,11 @@
-import { Injectable, Inject, forwardRef } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/first';
 
 import { Apollo } from 'apollo-angular';
 
@@ -33,70 +37,56 @@ export class AuthService {
         this.localStorage.setItem('auth', JSON.stringify(value));
         this.exchanger.set(value.token);
       }
+    });
+  }
+
+  registerNewUser(user: UserRegistrationData): Observable<UserLoginResponse> {
+    return this.apollo.mutate({
+      mutation: gql`
+        mutation registerNewUser($username: String!, $email: String!, $password: String!) {
+          createUser(username: $username, email: $email, password: $password) {
+            token
+            user { id username email }
+          }
+        }`,
+      variables: user,
     })
+    .first()
+    .map(response => {
+      this.auth$.next(response.data.createUser);
+      return response.data.createUser;
+    });
   }
 
-  async registerNewUser(user: UserRegistrationData): Promise<UserLoginResponse> {
-    try {
-      return this.apollo.mutate({
-        mutation: gql`
-          mutation registerNewUser($username: String!, $email: String!, $password: String!) {
-            createUser(username: $username, email: $email, password: $password) {
-              token
-              user { id username email }
-            }
-          }`,
-        variables: user,
-      })
-      .toPromise()
-      .then(response => {
-        this.auth$.next(response.data.createUser);
-        return response.data.createUser;
-      });
-    } catch (err) {
-      if (err.error instanceof Error) {
-        console.log('an error occured :', err.error.message);
-      } else {
-        console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
-      }
-      return Promise.reject(err);
-    }
-  }
-
-  async login(username: string, password: string): Promise<UserLoginResponse> {
+  login(username: string, password: string): Observable<UserLoginResponse> {
     return this.apollo.query<UserLoginResponse>({
       query: gql`
-        query {
-          token
-          user { id username email }
+        query($username: String!, $password: String!) {
+          login(username: $username, password: $password) {
+            token
+            user { id username email }
+          }
         }
       `,
       variables: {username, password}
     })
-    .toPromise()
-    .then(response => {
-      this.auth$.next(response.data);
-      return response.data;
-    })
-  }
-
-  async logout() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        this.auth$.next({token: null, user: null});
-        resolve()
-      }, 0);
+    .first()
+    .map(value => {
+      this.auth$.next(value.data);
+      return value.data;
     });
   }
 
-  async deleteAccount(id: string): Promise<boolean> {
-    try {
-      const res = await this.http.delete<boolean>(`api/user/${id}`).toPromise();
-      console.log(res);
-      return res;
-    } catch (err) {
-      console.log(`Account deletion failed : ${err.error.message}`);
-    }
+  logout() {
+    return this.auth$.next({token: null, user: null});
+  }
+
+  deleteAccount(id: string): Observable<boolean> {
+    return this.apollo.mutate({
+      mutation: gql`mutation deleteUser($id: Int!) {
+        deleteUser(id: $id) {}
+      }`
+    });
   }
 
 }

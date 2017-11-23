@@ -2,6 +2,8 @@ import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../../environments/environment.prod';
 
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloLink, concat } from 'apollo-link';
@@ -18,6 +20,7 @@ import { AuthService } from './auth.service';
 @NgModule({
   imports: [
     CommonModule,
+    environment.production ? ServiceWorkerModule.register('./ngsw-worker.js') : [],
     HttpClientModule,
     MatSnackBarModule,
     ApolloModule,
@@ -68,8 +71,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [
-      ],
+      providers: [ ],
     };
   }
 }

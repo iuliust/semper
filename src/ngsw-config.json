@@ -5,6 +5,8 @@
   },
   "assetGroups": [{
     "name": "appshell",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
     "resources": {
       "files": [
         "/assets/**/*",
