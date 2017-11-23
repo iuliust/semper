@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 interface User {
   id: number;
   username: string;
+  email: string;
 }
 
 interface QueryResponse {
@@ -24,14 +25,9 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.apollo.watchQuery<QueryResponse>({
-      query: gql`
-      {
-        users {
-          id
-          username
-        }
-      }
-      `,
+      query: gql`{
+        users { id username email }
+      }`,
     })
     .valueChanges
     .subscribe(({data}) => {

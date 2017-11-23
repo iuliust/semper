@@ -27,10 +27,12 @@ export class LoginComponent {
   };
   loading = false;
 
-  constructor(private http: HttpClient,
-              private auth: AuthService,
-              private snackBar: MatSnackBar,
-              private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) { }
 
   async submitCredentials(info: LoginDto) {
     try {
