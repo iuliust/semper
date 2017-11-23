@@ -30,6 +30,7 @@ export class AuthService {
   ) {
     this.auth$.subscribe(value => {
       if (value) {
+        this.localStorage.setItem('auth', JSON.stringify(value));
         this.exchanger.set(value.token);
       }
     })
@@ -42,11 +43,7 @@ export class AuthService {
           mutation registerNewUser($username: String!, $email: String!, $password: String!) {
             createUser(username: $username, email: $email, password: $password) {
               token
-              user {
-                id
-                username
-                email
-              }
+              user { id username email }
             }
           }`,
         variables: user,
@@ -67,16 +64,20 @@ export class AuthService {
   }
 
   async login(username: string, password: string): Promise<UserLoginResponse> {
-    return this.http.post<UserLoginResponse>('/api/auth/login', {username, password})
-      .toPromise()
-      .then(responseBody => {
-        if ('token' in responseBody) {
-          this.auth$.next(responseBody);
-          return responseBody;
-        } else {
-          throw new Error('couldn\'t find the token in the response');
+    return this.apollo.query<UserLoginResponse>({
+      query: gql`
+        query {
+          token
+          user { id username email }
         }
-      });
+      `,
+      variables: {username, password}
+    })
+    .toPromise()
+    .then(response => {
+      this.auth$.next(response.data);
+      return response.data;
+    })
   }
 
   async logout() {
