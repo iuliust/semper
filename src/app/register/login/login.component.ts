@@ -35,18 +35,14 @@ export class LoginComponent {
   ) { }
 
   async submitCredentials(info: LoginDto) {
-    try {
-      this.loading = true;
-      const authResponse = await this.auth.login(info.username, info.password);
-      this.snackBar.open('vous êtes à présent connecté', undefined, {
-        duration: 2000,
-      });
-      this.router.navigate(['/']);
-    } catch (err) {
-      console.trace(err);
-    } finally {
-      this.loading = false;
-    }
+    this.loading = true;
+    this.auth.login(info.username, info.password)
+      .subscribe(val => {
+        this.snackBar.open('vous êtes à présent connecté', undefined, {
+          duration: 2000,
+        });
+        this.router.navigate(['/']);
+      }, undefined, () => this.loading = false);
   }
 
 }

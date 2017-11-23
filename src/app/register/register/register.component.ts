@@ -17,9 +17,11 @@ export class RegisterComponent {
     password: '',
   };
 
-  constructor(private authService: AuthService,
-              private router: Router,
-              private snackbar: MatSnackBar) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private snackbar: MatSnackBar,
+  ) { }
 
   async createNewUser(user: UserRegistrationData) {
     try {
