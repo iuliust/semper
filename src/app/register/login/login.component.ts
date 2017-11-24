@@ -20,11 +20,12 @@ interface LoginResponse {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  // @Output() connectionSuccess  = new EventEmitter<any>();
+
   loginInfo: LoginDto = {
     username: '',
     password: '',
   };
+  
   loading = false;
 
   constructor(

@@ -59,7 +59,7 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<UserLoginResponse> {
-    return this.apollo.query<UserLoginResponse>({
+    return this.apollo.query<{login: UserLoginResponse}>({
       query: gql`
         query($username: String!, $password: String!) {
           login(username: $username, password: $password) {
@@ -71,9 +71,9 @@ export class AuthService {
       variables: {username, password}
     })
     .first()
-    .map(value => {
-      this.auth$.next(value.data);
-      return value.data;
+    .map(response => {
+      this.auth$.next(response.data.login);
+      return response.data.login;
     });
   }
 

@@ -36,16 +36,9 @@ export class AppComponent implements OnInit {
   data = '';
   counter = 0;
 
-  constructor(protected apiService: ApiService, public auth: AuthService) {}
+  constructor(public auth: AuthService) {}
 
-  ngOnInit() {
-    this.apiService.getData()
-      .subscribe((response) => {
-        this.data = response.data;
-      }, (error) => {
-        this.data = 'Error with HTTP request';
-      });
-  }
+  ngOnInit() { }
 
   toggleTitleState() {
     if (this.titleState === 'small') {

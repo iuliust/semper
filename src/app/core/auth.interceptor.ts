@@ -10,7 +10,6 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private exchanger: TokenExchangerService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<HttpEventType.Response>> {
-    console.log('nouvelle requête');
     const token = this.exchanger.get();
     if (token) {
       const authReq = req.clone({

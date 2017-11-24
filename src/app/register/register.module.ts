@@ -23,8 +23,11 @@ import { SharedModule } from 'app/shared';
     FlexLayoutModule,
     RegisterRoutingModule,
   ],
-  declarations: [ RegisterComponent, LoginComponent, DisconnectComponent,
+  declarations: [
+    RegisterComponent,
+    LoginComponent,
+    DisconnectComponent,
     LoginPageComponent
-],
+  ],
 })
 export class RegisterModule { }

@@ -9,9 +9,6 @@ export class LocalStorageService {
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
-    if (this.isBrowser) {
-      console.log('i am a browser');
-    }
   }
 
   getItem(key: string): string {

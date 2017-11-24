@@ -12,31 +12,26 @@ import { ApolloClientOptions } from 'apollo-client';
 import { HttpLink, HttpLinkModule } from 'apollo-angular-link-http';
 import { ApolloCache } from 'apollo-cache';
 
+import { ControlsModule } from '../controls/controls.module';
 import { AuthInterceptor } from './auth.interceptor';
 import { TokenExchangerService } from './token-exchanger.service';
 import { LocalStorageService } from './local-storage.service';
 import { AuthService } from './auth.service';
+import { StreamModule } from 'app/stream/stream.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    environment.production ? ServiceWorkerModule.register('./ngsw-worker.js') : [],
     HttpClientModule,
+    environment.production ? ServiceWorkerModule.register('./ngsw-worker.js') : [],
     MatSnackBarModule,
     ApolloModule,
     HttpLinkModule,
+    ControlsModule,
+    StreamModule,
   ],
-  declarations: [],
-  providers: [
-    AuthService,
-    TokenExchangerService,
-    LocalStorageService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    },
-  ],
+  declarations: [ ],
+  providers: [ ],
 })
 export class CoreModule {
   constructor(
@@ -71,7 +66,16 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [ ],
+      providers: [
+        AuthService,
+        TokenExchangerService,
+        LocalStorageService,
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterceptor,
+          multi: true
+        },
+      ],
     };
   }
 }
