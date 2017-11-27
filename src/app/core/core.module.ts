@@ -10,6 +10,7 @@ import { ApolloLink, concat } from 'apollo-link';
 import { Apollo, ApolloModule } from 'apollo-angular';
 import { ApolloClientOptions } from 'apollo-client';
 import { HttpLink, HttpLinkModule } from 'apollo-angular-link-http';
+import { createUploadLink } from 'apollo-upload-client';
 import { ApolloCache } from 'apollo-cache';
 
 import { ControlsModule } from '../controls/controls.module';
@@ -42,7 +43,7 @@ export class CoreModule {
     if (parent) {
       throw new Error('Core module is already loaded. Import it in the AppModule only');
     }
-    const link = httpLink.create({ uri: 'http://localhost:4200/api/graphql' });
+    const uploadLink = createUploadLink({ uri: 'http://localhost:4200/api/graphql' });
 
     const authMiddleware = new ApolloLink((operation, forward) => {
       const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -58,7 +59,7 @@ export class CoreModule {
     });
 
     apollo.create<any>({
-      link: concat(authMiddleware, link),
+      link: concat(authMiddleware, uploadLink),
       cache: new InMemoryCache()
     });
   }
