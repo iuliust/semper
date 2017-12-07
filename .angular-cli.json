@@ -99,6 +99,9 @@
     },
     "service": {
       "spec": false
+    },
+    "schematics": {
+      "collection": "@nrwl/schematics"
     }
   },
   "warnings": {
