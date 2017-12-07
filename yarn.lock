@@ -1981,6 +1981,10 @@ domino@^1.0.29:
   version "1.0.30"
   resolved "https://registry.yarnpkg.com/domino/-/domino-1.0.30.tgz#54a4154ecae968616680f8feba3cedff355c71f4"
 
+domino@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/domino/-/domino-2.0.0.tgz#d1858dc4a9ea9b5f830e4ab8636ed22026b592a6"
+
 domutils@1.1:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/domutils/-/domutils-1.1.6.tgz#bddc3de099b9a2efacc51c623f28f416ecc57485"

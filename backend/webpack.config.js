@@ -5,6 +5,7 @@ const nodeExternals = require('webpack-node-externals');
 
 const config = {
   target: 'node',
+  // devtool: 'eval',
   entry: {
     'main': path.resolve(__dirname, '..', 'backend/server.ts')
   },
@@ -16,6 +17,9 @@ const config = {
       /^apollo-angular/,
       /^apollo-client/,
       /^apollo-client-rxjs/,
+      /^apollo-angular-link-http/,
+      /^apollo-angular-inmemory/,
+      /^apollo-upload-client/,
     ]
   })],
   node: {

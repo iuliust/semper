@@ -1,15 +1,15 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
+import 'isomorphic-fetch';
 import * as express from 'express';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as compression from 'compression';
 import * as proxy from 'http-proxy-middleware';
-import * as main from '../dist/dist-server/main.bundle';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
-
 import { renderModuleFactory } from '@angular/platform-server';
-const {LAZY_MODULE_MAP, ServerAppModuleNgFactory} = main;
+
+const {LAZY_MODULE_MAP, ServerAppModuleNgFactory} = require('../dist/dist-server/main.bundle');
 
 const dirnamePath = path.resolve(__dirname);
 const rootPath = path.resolve(dirnamePath, '..');

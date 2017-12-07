@@ -22,7 +22,7 @@ import gql from 'graphql-tag';
 
 @Injectable()
 export class AuthService {
-  auth$ = new BehaviorSubject<UserLoginResponse>(JSON.parse(this.localStorage.getItem('auth')) || {token: null, user: null});
+  auth$: BehaviorSubject<UserLoginResponse>;
   get token() { return this.auth$.value.token }
   get user() { return this.auth$.value.user }
 
@@ -32,6 +32,8 @@ export class AuthService {
     private localStorage: LocalStorageService,
     private apollo: Apollo,
   ) {
+    const currentAuth = this.localStorage.getItem('auth');
+    this.auth$ = new BehaviorSubject<UserLoginResponse>(currentAuth ? JSON.parse(currentAuth) : {token: null, user: null});
     this.auth$.subscribe(value => {
       if (value) {
         this.localStorage.setItem('auth', JSON.stringify(value));
