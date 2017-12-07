@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-import { Apollo } from 'apollo-angular/Apollo';
+import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 import { User, AuthService } from 'app/core';

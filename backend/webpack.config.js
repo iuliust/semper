@@ -7,7 +7,7 @@ const config = {
   target: 'node',
   // devtool: 'eval',
   entry: {
-    'main': path.resolve(__dirname, '..', 'backend/server.ts')
+    'main': path.resolve(__dirname, '..', 'backend/ssr-server.ts')
   },
   resolve: {
     extensions: ['.js', '.ts']
