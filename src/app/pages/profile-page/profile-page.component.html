@@ -1,3 +1,18 @@
 <p *ngIf="user">
   hey, ceci est le profil de {{ user.username }}
 </p>
+<img *ngIf="user?.profilePicture" [src]="user?.profilePicture.path">
+<form #f="ngForm">
+    <input type="file" name="cover" (change)="setFile($event.target.files[0])">
+  <div>
+    <button type="submit">envoyer</button>
+  </div>
+  <div>
+    <button (click)="removeProfilePicture()">supprimer</button>
+  </div>
+</form>
+<div *ngFor="let file of allFiles$ | async">
+  <div>
+    {{ file.id }} {{ file.path }} <button (click)="removeFile(file.id)">X</button>
+  </div>
+</div>

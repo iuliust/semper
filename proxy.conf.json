@@ -5,5 +5,9 @@
       "^/api": ""
     },
     "secure": false
+  },
+  "/uploads": {
+    "target": "http://localhost:5000",
+    "secure": false
   }
 }
