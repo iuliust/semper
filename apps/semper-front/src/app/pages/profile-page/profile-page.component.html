@@ -1,5 +1,5 @@
 <p *ngIf="user">
-  hey, ceci est le profil de {{ user.username }}
+  {{ user.username }}
 </p>
 <img *ngIf="user?.profilePicture" [src]="user?.profilePicture.path">
 <form #f="ngForm">

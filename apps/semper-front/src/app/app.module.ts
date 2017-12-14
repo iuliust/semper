@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
 import { MatSidenavModule, MatMenuModule, MatButtonModule, MatIconModule } from '@angular/material';
-import { SharedModule } from 'app/shared';
+import { SharedModule } from './shared';
 
 
 @NgModule({

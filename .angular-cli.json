@@ -5,7 +5,7 @@
   },
   "apps": [
     {
-      "root": "src",
+      "root": "apps/semper-front/src",
       "outDir": "dist/dist-browser",
       "assets": [
         "assets",
@@ -15,7 +15,7 @@
       "main": "main.browser.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.browser.json",
+      "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "fi",
       "serviceWorker": true,
