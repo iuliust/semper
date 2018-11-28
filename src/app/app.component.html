@@ -1,25 +1,25 @@
-<md-sidenav-container>
-  <md-sidenav mode="over" #sidenav>
+<mat-sidenav-container>
+  <mat-sidenav mode="over" #sidenav>
     <fi-main-menu></fi-main-menu>
-  </md-sidenav>
-  <div class="content" fxLayout="column" fxFlex>
+  </mat-sidenav>
+  <mat-sidenav-content fxLayout="column">
     <fi-navbar>
-      <button md-icon-button (click)="sidenav.toggle()">
-        <md-icon aria-label="ouvrir le menu principal">menu</md-icon>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon aria-label="ouvrir le menu principal">menu</mat-icon>
       </button>
       <span (click)="sidenav.toggle()">Semper</span>
       <span fxFlex></span>
-      <md-menu #appMenu="mdMenu">
-        <button md-menu-item>Option</button>
-        <button md-menu-item>Aide</button>
-      </md-menu>
-      <button md-icon-button [mdMenuTriggerFor]="appMenu">
-          <md-icon>more_vert</md-icon>
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item>Option</button>
+        <button mat-menu-item>Aide</button>
+      </mat-menu>
+      <button mat-icon-button [matMenuTriggerFor]="appMenu">
+          <mat-icon>more_vert</mat-icon>
       </button>
     </fi-navbar>
     <fi-main-content fxFlex>
       <router-outlet></router-outlet>
     </fi-main-content>
     <fi-footer></fi-footer>
-  </div>
-</md-sidenav-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>
